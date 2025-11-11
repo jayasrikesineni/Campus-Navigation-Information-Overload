@@ -1,0 +1,148 @@
+/* Basic Reset and Variables */
+:root {
+    --primary-color: #007bff;
+    --secondary-color: #28a745;
+    --background-color: #f4f7f9;
+    --card-background: #ffffff;
+    --text-color: #333;
+    --border-color: #e0e0e0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 15px 20px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    margin: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+    display: grid;
+    /* Main layout: one column for input, one for the map/directions */
+    grid-template-columns: 1fr 2fr; 
+    gap: 30px;
+}
+
+/* --- Input Panel Styles --- */
+.input-panel {
+    padding: 20px;
+    background-color: var(--card-background);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.input-panel h2 {
+    color: var(--primary-color);
+    margin-top: 0;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 10px;
+}
+
+#userInput {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    resize: vertical;
+    box-sizing: border-box;
+}
+
+#getDirectionsBtn {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#getDirectionsBtn:hover {
+    background-color: #1e7e34;
+}
+
+.status-message {
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 4px;
+    background-color: #fff3cd; /* Yellow for loading/status */
+    color: #856404;
+    text-align: center;
+    visibility: hidden; /* Hide by default */
+}
+
+/* --- Output Area Styles --- */
+.output-area {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Key: Map container needs a fixed height! */
+#mapContainer {
+    background-color: var(--card-background);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    /* Set a specific height for the map */
+    height: 400px; 
+    z-index: 0; /* Ensures map elements don't overlap others incorrectly */
+}
+
+.directions-panel {
+    padding: 20px;
+    background-color: var(--card-background);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.directions-panel h2 {
+    color: var(--primary-color);
+    margin-top: 0;
+}
+
+.response-content {
+    border-left: 3px solid var(--secondary-color);
+    padding-left: 15px;
+}
+
+.initial-prompt {
+    color: #6c757d;
+    font-style: italic;
+}
+
+/* --- Responsive Design for Smaller Screens --- */
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr; /* Stack panels on small screens */
+    }
+
+    #mapContainer {
+        height: 300px;
+    }
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    margin-top: 30px;
+    color: #6c757d;
+    font-size: 0.8em;
+}
